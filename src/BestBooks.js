@@ -17,21 +17,21 @@ class BestBooks extends React.Component {
     try {
       // TODO: build the url for axios to hit my server - my books endpoint
       // http://localhost:3001/books
-        let url = `${process.env.REACT_APP_SERVER}/books`
-  
+      let url = `${process.env.REACT_APP_SERVER}/books`;
+
       // TODO: pass the url into an axios.get() and then store that return in a variable
       let urlData = await axios.get(url);
 
       // TODO: take that return and set state of books
       this.setState({
         books: urlData.data
-      })
+      });
 
     } catch (error) {
       console.log(error.message);
     }
-  }
-  
+  };
+
   componentDidMount() {
     this.getBooks();
   }
@@ -43,8 +43,8 @@ class BestBooks extends React.Component {
     return (
       // console.log('App State >>> ', this.state);
       <>
-<h2>My Essential Lifelong Learning &amp; Formation Shelf</h2>
-{this.state.books.length > 0 ? (
+        <h2 style={{ display: 'flex', justifyContent: 'center', marginTop: '1em' }}>My Essential Lifelong Learning &amp; Formation Shelf</h2>
+        {this.state.books.length > 0 ? (
           <Carousel>
             {this.state.books.map((book) => (
               <Carousel.Item key={book._id}>
@@ -52,7 +52,7 @@ class BestBooks extends React.Component {
                   className="d-block w-100"
                   src={Image}
                   alt={book.title}
-                  style={{ maxHeight: '800px', objectFit: 'contain', marginTop: '2em', marginBottom: '2em' }}
+                  style={{ maxHeight: '500px', objectFit: 'contain', marginTop: '2em', marginBottom: '2em' }}
                 />
                 <Carousel.Caption>
                   <h3>{book.title}</h3>
