@@ -1,10 +1,7 @@
 # Documentation
 
-You must have a complete README.md for your repository.
 
-Your README.md must include:
-
-# Project Name
+## Can of Books App
 
 **Author**: Yaz Ahmed, Kao Saelor, Kenya Womack
 
@@ -32,12 +29,12 @@ Your README.md must include:
 Time Estimates
 For each of the lab features, make an estimate of the time it will take you to complete the feature, and record your start and finish times for that feature:
 
-Name of feature: ________________________________
+Name of feature: Can of Books App -FrontEnd
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 4 hours
 
-Start time: 3:30pm _____
+Start time: 9:30pm 
 
-Finish time: _____
+Finish time: 11:30pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 2 hours
