@@ -26,7 +26,8 @@
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
-Time Estimates
+**Time Estimates**
+
 For each of the lab features, make an estimate of the time it will take you to complete the feature, and record your start and finish times for that feature:
 
 Name of feature: Can of Books App -FrontEnd
@@ -38,3 +39,18 @@ Start time: 9:30pm
 Finish time: 11:30pm
 
 Actual time needed to complete: 2 hours
+
+
+**Time Estimates**
+
+For each of the lab features, make an estimate of the time it will take you to complete the feature, and record your start and finish times for that feature:
+
+Name of feature: Lab 12 Task 1-2
+
+Estimate of time needed to complete: 4 hours
+
+Start time: 2pm
+
+Finish time: 8pm
+
+Actual time needed to complete: 6 hours

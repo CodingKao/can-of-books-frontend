@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal, Button, Form } from 'react-bootstrap'
 
-class BookModal extends React.Component {
+class BookFormModal extends React.Component {
 
     // Prevent click from redirect to URL instead run on form submission
     handleSubmit = (event) => {
@@ -39,4 +39,4 @@ class BookModal extends React.Component {
     }
 }
 
-export default BookModal;
+export default BookFormModal;
