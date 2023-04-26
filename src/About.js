@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { Card, Container, Row, Col } from 'react-bootstrap';
 import kaopic from './Image/kaopic.jpeg'
+import kenyapic from './Image/kenyapic.jpg'
 
 class About extends Component {
   render() {
@@ -31,7 +32,7 @@ class About extends Component {
           </Col>
           <Col sm={12} md={6}>
             <Card style={{ width: '20rem' }}>
-              <Card.Img variant="top" src="holder.js/200px280" />
+              <Card.Img variant="top" src={kenyapic}/>
               <Card.Body>
                 <Card.Title>Kenya Womack</Card.Title>
                 <Card.Text>
