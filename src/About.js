@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { Card, Button, Container, Row, Col } from 'react-bootstrap';
+import kaopic from './Image/kaopic.jpeg'
 
 class About extends Component {
   render() {
@@ -7,7 +8,7 @@ class About extends Component {
       <Container>
         <Row>
           <Col sm={12} md={6}>
-            <Card style={{ width: '18rem' }}>
+            <Card style={{ width: '20rem' }}>
               <Card.Img variant="top" src="holder.js/100px180" />
               <Card.Body>
                 <Card.Title>Yaz Ahmed</Card.Title>
@@ -21,8 +22,8 @@ class About extends Component {
             </Card>
           </Col>
           <Col sm={12} md={6}>
-            <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src="holder.js/100px180" />
+            <Card style={{ width: '20rem' }}>
+              <Card.Img variant="top" src={kaopic} />
               <Card.Body>
                 <Card.Title>Kao Saelor</Card.Title>
                 <Card.Text>
@@ -35,7 +36,7 @@ class About extends Component {
             </Card>
           </Col>
           <Col sm={12} md={6}>
-            <Card style={{ width: '18rem' }}>
+            <Card style={{ width: '20rem' }}>
               <Card.Img variant="top" src="holder.js/100px180" />
               <Card.Body>
                 <Card.Title>Kenya Womack</Card.Title>
