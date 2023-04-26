@@ -2,8 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Carousel, Button } from 'react-bootstrap';
 import Image from './Image/bookImg.jpg'
-import BookModal from './BookForm';
-// import './App.css';
+import BookModal from './BookFormModal';
 
 class BestBooks extends React.Component {
   constructor(props) {
@@ -38,7 +37,7 @@ class BestBooks extends React.Component {
   handleBookSubmit = (event) => {
     event.preventDefault();
 
-    // construct a book obj based on the form input values
+    // TODO: CONSTRUCT A BOOK OBJ BASED ON THE FORM INPUT VALUES
     let bookObj = {
       title: event.target.title.value,
       description: event.target.description.value,
@@ -46,11 +45,16 @@ class BestBooks extends React.Component {
     }
     console.log(bookObj);
 
-    // Create add book 
+    // Create add book & send to backend
     const postBook = async (bookObj) => {
       try {
+        // TODO: build my url for axios -> http://localhost:3001/books
         let url = `${process.env.REACT_APP_SERVER}/books`
+
+        // TODO: pass the url and the cat data into axios on a POST and store that return in a variable
         let postBook = await axios.post(url, bookObj);
+
+        // TODO: Update state with that newly created book
         this.setState({ books: [...this.state.books, postBook.data] })
         this.closeModal();
 
@@ -64,12 +68,19 @@ class BestBooks extends React.Component {
   };
 
 
-  // create delete book
+  // *** HANDLER TO DELETE BOOK ****
   deleteBook = async (bookID) => {
     try {
+      // TODO: Build out the url for axios -> http://localhost:3001/cats/64481c6eaaa56c3a62ca80e5
       let url = `${process.env.REACT_APP_SERVER}/books/${bookID}`;
+      console.log('url in delete; url');
+
+      // TODO: pass that URL into axios on a DELETE
       await axios.delete(url);
+
+      // TODO: update state -> Filter out the book with the matching ID That is going to be deleted. We are going to look at each book in state and if the id of that book does not match the one to be deleted, it gets put into the array called updatedBooks
       let updatedBooks = this.state.books.filter(book => book._id !== bookID)
+      
       this.setState({ books: updatedBooks });
 
     } catch (error) {
@@ -113,7 +124,7 @@ class BestBooks extends React.Component {
                   <h3 className='book-title'>{book.title}</h3>
                   <h5> {book.status && (
                     <>
-                      <span role="img" aria-label="heart"> ❤️ </span>
+                      <span role="img" aria-label="heart"> </span>
                       <strong><em>Highly Recommended</em></strong>
                     </>
                   )}</h5>
