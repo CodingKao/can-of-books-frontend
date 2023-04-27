@@ -1,8 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import { Carousel, Button } from 'react-bootstrap';
-import Image from './Image/bookImg.jpg'
+import Image from './Image/bookImg.jpg';
 import BookModal from './BookFormModal';
+import UpdateBook from './UpdateBookModal';
 
 class BestBooks extends React.Component {
   constructor(props) {
@@ -67,6 +68,18 @@ class BestBooks extends React.Component {
     postBook(bookObj);
   };
 
+  updateBook = async (bookToUpdate) => {
+    try {
+      let url = `${process.env.REACT_APP_SERVER}/books/${bookToUpdate._id}`;
+      let urlUpdate = await axios.put(url, bookToUpdate);
+      let updatedBookArr = this.state.books.map(existingBook => {
+        return existingBook._id === bookToUpdate._id ? urlUpdate.data : existingBook
+      })
+      this.setState({ books: updatedBookArr });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   // *** HANDLER TO DELETE BOOK ****
   deleteBook = async (bookID) => {
@@ -80,7 +93,7 @@ class BestBooks extends React.Component {
 
       // TODO: update state -> Filter out the book with the matching ID That is going to be deleted. We are going to look at each book in state and if the id of that book does not match the one to be deleted, it gets put into the array called updatedBooks
       let updatedBooks = this.state.books.filter(book => book._id !== bookID)
-      
+
       this.setState({ books: updatedBooks });
 
     } catch (error) {
@@ -99,6 +112,16 @@ class BestBooks extends React.Component {
 
   closeModal = () => {
     this.setState({ showModal: false })
+  };
+
+  openForm = () => {
+    this.setState({ showForm: true })
+  }
+  closeForm = () => {
+    this.setState({ showForm: false })
+  };
+  openFormWithSelectedBook = (book) => {
+    this.setState({ showForm: true, selectedBook: book });
   };
 
 
@@ -131,6 +154,7 @@ class BestBooks extends React.Component {
                   <p className='book-description'>{book.description}</p>
                   <div className='button-div'>
                     <Button className='add-button' onClick={this.openModal}>Add a Book!</Button>
+                    <Button className='update-button' onClick={() => this.openFormWithSelectedBook(book)}>Update a Book!</Button>
                     <Button className='delete-button' onClick={() => this.deleteBook(book._id)}>Delete a Book!</Button>
                   </div>
                 </Carousel.Caption>
@@ -146,6 +170,14 @@ class BestBooks extends React.Component {
           onHide={this.closeModal}
           onSubmit={this.handleBookSubmit}
           onBookAdd={this.closeModal}
+        />
+
+<UpdateBook
+          show={this.state.showForm}
+          onHide={this.closeForm}
+          updateBook={this.updateBook}
+          onBookUpdate={this.closeForm}
+          book={this.state.selectedBook}
         />
 
       </>
