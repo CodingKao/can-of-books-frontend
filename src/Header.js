@@ -11,7 +11,7 @@ class Header extends React.Component {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav style={{ justifyContent: 'flex-end', width: '100%', marginRight: '1em' }}>
             <NavItem>
-              <Link to="/BestBooks" className="nav-link">Home</Link>
+              <Link to="/" className="nav-link">Home</Link>
             </NavItem>
             <NavItem>
               <Link to="/About" className="nav-link">About Us</Link>

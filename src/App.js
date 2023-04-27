@@ -20,12 +20,12 @@ class App extends React.Component {
           <Header />
           <Routes>
             <Route 
-              exact path='bestbooks'
+              exact path='/'
               element={<BestBooks />}
             >
             </Route>
             <Route 
-              exact path='about'
+              path='about'
               element={<About />}
             >
             </Route>
